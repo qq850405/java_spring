@@ -1,0 +1,23 @@
+# DataSource config
+spring :
+  datasource:
+        driverClassName: org.mariadb.jdbc.Driver
+        url : jdbc:mariadb:failover://127.0.0.1:3306/teacher_wanted
+        username : root
+        password :
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+server:
+  port: 8081
+thymeleaf:
+  cache: false
+  prefix: classpath:/templates/
+  suffix: .html
+  encoding: UTF-8
+  mode: HTML
+debug: true
+
+
