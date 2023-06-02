@@ -3,16 +3,19 @@ package com.example.demo.controller;
 import com.example.demo.entity.Wanted;
 import com.example.demo.service.UserService;
 import com.example.demo.service.WantedService;
+import org.antlr.v4.runtime.tree.pattern.ParseTreePattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
 import java.util.Optional;
 @Controller
 public class WantedController {
@@ -54,5 +57,12 @@ public class WantedController {
         }
 
         return "wanted";
+    }
+
+    @GetMapping("/show_wanted")
+    public String showWanted(Model model){
+        List<Wanted> wantedList = wantedService.findAll();
+        model.addAttribute("wantedList", wantedList);
+        return "showWanted";
     }
 }

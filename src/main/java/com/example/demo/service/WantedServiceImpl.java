@@ -1,10 +1,11 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Wanted;
-import com.example.demo.repo.UserRepository;
 import com.example.demo.repo.WantedRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
+
 @Service
 public class WantedServiceImpl implements WantedService{
 
@@ -15,6 +16,14 @@ public class WantedServiceImpl implements WantedService{
     }
 
     public void createWanted(Wanted wanted){
+
         wantedRepository.save(wanted);
     }
+
+    @Override
+    public List<Wanted> findAll() {
+        return wantedRepository.findAll();
+    }
+
+
 }

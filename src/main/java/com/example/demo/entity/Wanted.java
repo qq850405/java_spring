@@ -15,31 +15,31 @@ import java.time.LocalDateTime;
 public class Wanted {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	public int id;
 
 	@Column(nullable = false)
-	private String mid;
+	public String mid;
 
 	@Column(nullable = false)
-	private String subject;
+	public String subject;
 
 	@Column(nullable = false)
-	private String location;
+	public String location;
 
 	@Column(nullable = false)
-	private String num_students;
+	public String num_students;
 
 	@Column(nullable = false)
-	private String period;
+	public String period;
 
 	@Column(nullable = false)
-	private Integer salary;
+	public Integer salary;
 
 	@Column(nullable = false)
-	private String content;
+	public String content;
 
 	@Column(name = "create_time")
-	private LocalDateTime create_time;
+	public LocalDateTime create_time;
 
 }
 
