@@ -14,4 +14,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     List<User> findByAccount(String account);
 
+    //update verify status
+
 }

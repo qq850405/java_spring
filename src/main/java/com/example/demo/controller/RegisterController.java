@@ -28,14 +28,12 @@ public class RegisterController {
     @PostMapping("/register_user")
     public String registerUser(@RequestParam("account") String account,
                              @RequestParam("password") String password,
-                             @RequestParam("name") String name,
-                             @RequestParam("email") String email) {
+                             @RequestParam("name") String name) {
         // 创建一个新的User对象
         User user = new User();
         user.setAccount(account);
         user.setPassword(password);
         user.setName(name);
-        user.setEmail(email);
         try {        // 调用UserService中的注册方法
             System.out.println(user);
             userService.registerUser(user);

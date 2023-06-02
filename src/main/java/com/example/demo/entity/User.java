@@ -4,6 +4,7 @@ import java.security.Timestamp;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 
 import jakarta.persistence.Column;
@@ -37,11 +38,8 @@ public class User {
 	@Column(nullable = false)
 	private String name;
 
-	@Column(nullable = false, unique = true)
-	private String email;
-
 	@Column(name = "mail_verify")
-	private Boolean mailVerify;
+	private String mailVerify;
 
 	@Column(name = "create_time")
 	private LocalDateTime createTime;
@@ -49,4 +47,15 @@ public class User {
 	@Column(name = "update_time")
 	private LocalDateTime updateTime;
 
+	@Column(name = "verify_code")
+	private String verifyCode;
+
+//	 Lombok will automatically generate the setter:
+	 public void setVerifyCode(String verifyCode) {
+	     this.verifyCode = verifyCode;
+	 }
+
+	public void setVerify(String status) {
+		this.mailVerify = Objects.equals(status, "1") ? "1" : "0";
+	}
 }
